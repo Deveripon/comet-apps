@@ -13,12 +13,18 @@ class AdminAuthController extends Controller
 
     public function login(Request $request)
     {
+        //validate
         $this -> validate($request,[
             'auth'      => 'required',
             'password'  => 'required'
         ]);
 
-        if(Auth::guard('admin') ->attempt(['email' => $request -> auth,'password' => $request -> password])){
+        //try to login by guard
+        if(
+        Auth::guard('admin') ->attempt(['email' => $request -> auth,'password' => $request -> password])||
+        Auth::guard('admin') ->attempt(['cell' => $request -> auth,'password' => $request -> password])||
+        Auth::guard('admin') ->attempt(['username' => $request -> auth,'password' => $request -> password])
+        ){
             return redirect() -> route('dashboard.page');
         }else{
             return redirect() -> route('login.page') -> with('danger','Email or Mobile or Password Not Match');

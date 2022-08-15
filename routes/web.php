@@ -6,10 +6,17 @@ use App\Http\Controllers\admin\AdminAuthController;
 
 
 //Admin Pages routes
-Route::get('/login',[AdminPageController::class,'ShowLoginPage']) -> name('login.page');
-Route::get('/dashboard',[AdminPageController::class,'ShowDashboardPage']) -> name('dashboard.page');
+
+Route::group(['middleware' => 'admin.redirect'],function(){
+    Route::get('/login',[AdminPageController::class,'ShowLoginPage']) -> name('login.page');
+    Route::post('/login',[AdminAuthController::class,'login']) -> name('login');
+});
+
+
 
 
 //Admin Auth routes
-Route::post('/login',[AdminAuthController::class,'login']) -> name('login');
-Route::get('logout',[AdminAuthController::class,'logout']) -> name('logout');
+Route::group(['middleware'=>'admin'],function(){
+    Route::get('/dashboard',[AdminPageController::class,'ShowDashboardPage']) -> name('dashboard.page');
+    Route::get('logout',[AdminAuthController::class,'logout']) -> name('logout');
+});
