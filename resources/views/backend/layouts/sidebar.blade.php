@@ -5,9 +5,11 @@
                 <li class="menu-title"> 
                     <span>Main</span>
                 </li>
+        
                 <li class=""> 
                     <a href="index.html"><i class="fe fe-home"></i></i> <span>Dashboard</span></a>
                 </li>
+            
                 <li class=""> 
                     <a href="index.html"><i class="fa-brands fa-slideshare"></i> <span>Slider</span></a>
                 </li>
@@ -42,7 +44,7 @@
                     <ul style="display: none;">
                         <li><a href="invoice-report.html">Admin Users</a></li>
                         <li><a href="invoice-report.html">Role</a></li>
-                        <li><a href="invoice-report.html">Permision</a></li>
+                        <li><a href="{{route('permission.index')}}">Permision</a></li>
                     </ul>
                 </li>
                 <li class="submenu">
