@@ -43,7 +43,7 @@
                     <a href="#"><i class="fa-regular fa-circle-user"></i> <span> Admin Options</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
                         <li><a href="invoice-report.html">Admin Users</a></li>
-                        <li><a href="invoice-report.html">Role</a></li>
+                        <li><a href="{{route('role.index')}}">Role</a></li>
                         <li><a href="{{route('permission.index')}}">Permision</a></li>
                     </ul>
                 </li>
