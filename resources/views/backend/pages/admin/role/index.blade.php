@@ -11,7 +11,7 @@
             @include('validate-main')
             <div class="card-body">             
                 <div class="table-responsive">
-                    <table class="table mb-0">
+                    <table class="table mb-0 data_table">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -29,9 +29,9 @@
                                  <td>{{$role -> name}}</td>
                                  <td>{{$role -> slug}}</td>
                                  <td>
-                                    <ul>
+                                    <ul style="padding:0px; margin:0px">
                                         @forelse(json_decode($role-> permissions) as $permission)
-                                        <li style="list-style-type:square">{{$permission}}</li>
+                                        <li style="list-style-type:square;padding:0px; margin:0px">{{$permission}}</li>
                                         @empty
                                         <li>No Permission Assigned</li>
                                         @endforelse
@@ -40,13 +40,13 @@
                                  <td>{{$role -> created_at -> diffForHumans()}}</td>
                                  <td >
                                      {{-- <a class="btn btn-sm btn-info" href="#"><i class="fa-solid fa-eye"></i></a> --}}
-                                      <a class="btn btn-sm btn-warning" href="{{route('role.edit',$role -> id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                      <a class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="edit" href="{{route('role.edit',$role -> id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
 
 
-                                     <form action="{{route('role.destroy',$role -> id)}}" method="POST" class="d-inline">
+                                     <form action="{{route('role.destroy',$role -> id)}}" method="POST" class="d-inline delete_form">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa-solid fa-trash"></i>
+                                        <button class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="bottom" title="delete" type="submit"><i class="fa-solid fa-trash"></i>
                                         </button>
                                     </form>                                 
                                  </td>
@@ -76,11 +76,11 @@
                 <form action="{{route('role.store')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <label>Role Name</label>
+                        <label style="font-weight:bold">Role Name</label>
                         <input name="name" value="" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Permissions</label>
+                        <label style="font-weight:bold">Permissions</label>
                         <ul style="margin:0px;padding:0px;">
                             @foreach(json_decode($permission_data) as $permission	)
                             <li style="list-style:none;margin:3px 0px;">

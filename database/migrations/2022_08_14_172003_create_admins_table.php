@@ -27,7 +27,7 @@ return new class extends Migration
             $table->text('bio') -> nullable();
             $table->string('access_token') -> nullable();
             $table->unsignedInteger('role_id') -> default(3);
-            $table->string('status') -> default(false);
+            $table->string('status') -> default(true);
             $table->string('trash') -> default(false);
             $table->timestamps();
         });

@@ -107,20 +107,26 @@
         <!-- User Menu -->
         <li class="nav-item dropdown has-arrow">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <span class="user-img"><img class="rounded-circle" src="{{url('storage/admin_photo/',Auth::guard('admin')->user()->photo)}}" width="31" alt="Ryan Taylor"></span>
+                <span class="user-img">
+                   
+                    <img class="rounded-circle" style="height:30px;width:30px;border-radius:50%" src="{{url('storage/admin_photo/',Auth::guard('admin')->user()->photo)}}" width="31" alt="Ryan Taylor">
+               
+                    {{-- <img class="rounded-circle" style="height:30px;width:30px;border-radius:50%" src="{{url('storage/admin_photo/',Auth::guard('admin')->user()->photo)}}" width="31" alt="Ryan Taylor">
+                --}}
+                </span>
             </a>
             <div class="dropdown-menu">
                 <div class="user-header">
                     <div class="avatar avatar-sm">
-                        <img src="{{url('storage/admin_photo/',Auth::guard('admin')->user()->photo)}}" alt="User Image" class="avatar-img rounded-circle">
+                        <img style="height:30px;width:30px;border-radius:50%" src="{{url('storage/admin_photo/',Auth::guard('admin')->user()->photo)}}" alt="User Image" class="avatar-img rounded-circle">
                     </div>
                     <div class="user-text">
                         <h6>{{Auth::guard('admin')->user()->name}}</h6>
-                        <p class="text-muted mb-0">Administrator</p>
+                        <p class="text-muted mb-0">{{Auth::guard('admin')->user()->user_role->name}}</p>
                     </div>
                 </div>
-                <a class="dropdown-item" href="profile.html">My Profile</a>
-                <a class="dropdown-item" href="settings.html">Settings</a>
+                <a class="dropdown-item" href="{{route('profile.page')}}">My Profile</a>
+                <a class="dropdown-item" href="{{route('settings.page')}}">Settings</a>
                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
             </div>
         </li>

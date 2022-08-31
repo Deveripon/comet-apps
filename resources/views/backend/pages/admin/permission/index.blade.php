@@ -12,7 +12,7 @@
             @include('validate-main')
             <div class="card-body">             
                 <div class="table-responsive">
-                    <table class="table mb-0">
+                    <table class="table mb-0 data_table">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -33,12 +33,12 @@
                                      {{-- <a class="btn btn-sm btn-info" href="#"><i class="fa-solid fa-eye"></i></a> --}}
 
                                 
-                                        <a class="btn btn-sm btn-warning" href="{{route('permission.edit',$permission -> id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom" title="edit" href="{{route('permission.edit',$permission -> id)}}"><i class="fa-solid fa-pen-to-square"></i></a>
 
-                                     <form action="{{route('permission.destroy',$permission -> id)}}" method="POST" class="d-inline">
+                                     <form action="{{route('permission.destroy',$permission -> id)}}" method="POST" class="d-inline delete_form">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
+                                        <button data-toggle="tooltip" data-placement="bottom" title="delete" class="btn btn-sm btn-danger" type="submit"><i class="fa-solid fa-trash"></i></button>
                                     </form>                                 
                                  </td>
                       @empty

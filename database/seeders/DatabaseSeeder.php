@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use App\Models\Role;
 use App\Models\admin;
+use App\Models\Permission;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -31,5 +33,9 @@ class DatabaseSeeder extends Seeder
             'username'  => 'devripon',
             'password'  => Hash::make('devripon' )         
         ]);
+
+
+
+
     }
 }

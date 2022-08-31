@@ -24,11 +24,16 @@
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+
+		{{-- data tables --}}
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
 		
 		<!--[if lt IE 9]>
 			<script src="backend/assets/js/html5shiv.min.js"></script>
 			<script src="backend/assets/js/respond.min.js"></script>
 		<![endif]-->
+
+ 
     </head>
     <body>
 	
@@ -60,6 +65,8 @@
 						</div>
 					</div>
 					<!-- /Page Header -->
+
+			
                     @section('main')
                     @show
 					
@@ -84,9 +91,15 @@
 		<script src="{{asset('backend/assets/plugins/morris/morris.min.js')}}"></script>  
 		<script src="{{asset('backend/assets/js/chart.morris.js')}}"></script>
 		
+		{{-- data table --}}
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js"></script>
+
 		<!-- Custom JS -->
 		<script  src="{{asset('backend/assets/js/script.js')}}"></script>
-		
+		<script  src="{{asset('backend/custom/custom.js')}}"></script>
+
     </body>
 
 </html>
