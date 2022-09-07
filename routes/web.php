@@ -2,10 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\RoleController;
-use App\Http\Controllers\admin\AdminAuthController;
 use App\Http\Controllers\admin\adminController;
+use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\SettingsController;
+use App\Http\Controllers\admin\AdminAuthController;
 use App\Http\Controllers\admin\AdminPageController;
 use App\Http\Controllers\admin\PermissionController;
+use App\Http\Controllers\frontend\FrontendController;
 
 
 //Admin Pages routes
@@ -33,6 +36,22 @@ Route::group(['middleware'=>'admin'],function(){
     Route::get('profile-page',[adminController::class,'ShowProfilePage']) -> name('profile.page');
     Route::post('profile_update/{id}',[adminController::class,'UpdateProfile']) -> name('profile.update');
     Route::post('profile_pic_update/{id}',[adminController::class,'UpdateProfilePic']) -> name('profile.photo.update');
-    Route::get('settings-page',[adminController::class,'ShowSettingsPage'])->name('settings.page');
     Route::post('change-password',[adminController::class,'ChangePassword'])->name('change.password');
+
+    //Settings Route
+    Route::resource('settings',SettingsController::class);
+    // Slider Route
+    Route::resource('slider',SliderController::class);
+    
 });
+
+
+
+
+
+
+// Frondend pages routes
+
+
+// Show Home Page
+Route::get('/',[FrontendController::class,'ShowHomePage'])-> name('home.page');

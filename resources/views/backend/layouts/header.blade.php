@@ -10,7 +10,7 @@
         </a>
     </div>
     <!-- /Logo -->
-    
+
     <a href="javascript:void(0);" id="toggle_btn">
         <i class="fe fe-text-align-left"></i>
     </a>
@@ -126,12 +126,12 @@
                     </div>
                 </div>
                 <a class="dropdown-item" href="{{route('profile.page')}}">My Profile</a>
-                <a class="dropdown-item" href="{{route('settings.page')}}">Settings</a>
+                <a class="dropdown-item" href="{{route('settings.index')}}">Settings</a>
                 <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
             </div>
         </li>
         <!-- /User Menu -->
-        
+    
     </ul>
     <!-- /Header Right Menu -->
     

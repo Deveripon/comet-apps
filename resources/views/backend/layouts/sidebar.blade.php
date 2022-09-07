@@ -7,12 +7,12 @@
                 </li>
         
                 <li class=""> 
-                    <a href="index.html"><i class="fe fe-home"></i></i> <span>Dashboard</span></a>
+                    <a href="{{route('dashboard.page')}}"><i class="fe fe-home"></i></i> <span>Dashboard</span></a>
                 </li>
             
                 @if(in_array("Slider",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
                 <li class=""> 
-                    <a href="index.html"><i class="fa-brands fa-slideshare"></i> <span>Slider</span></a>
+                    <a href="{{route('slider.index')}}"><i class="fa-brands fa-slideshare"></i> <span>Slider</span></a>
                 </li>
                 @endif
 
@@ -74,7 +74,7 @@
                 @endif
                 @if(in_array("Settings",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
                 <li class=""> 
-                    <a href="index.html"><i class="fa-solid fa-gears"></i><span>Settings</span></a>
+                    <a href="{{route('settings.index')}}"><i class="fa-solid fa-gears"></i><span>Settings</span></a>
                 </li>
                 @endif
            

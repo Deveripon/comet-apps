@@ -306,14 +306,6 @@ public function UpdateProfilePic(Request $request, $id)
 }
 
 
-/**
- * Show Settings Pages
- * 
-*/
-public function ShowSettingsPage()
-{
-    return view('backend.pages.admin.settings.index');
-}
 
 /**
  * Change Password

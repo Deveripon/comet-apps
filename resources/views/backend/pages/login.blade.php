@@ -48,7 +48,7 @@
 										<input  name="auth" class="form-control" type="text" placeholder="Email or Username or Mobile">
 									</div>
 									<div class="form-group">
-										<input name="password" class="form-control" type="text" placeholder="Password">
+										<input name="password" class="form-control" type="password" placeholder="Password">
 									</div>
 									<div class="form-group">
 										<button class="btn btn-primary btn-block" type="submit">Login</button>
