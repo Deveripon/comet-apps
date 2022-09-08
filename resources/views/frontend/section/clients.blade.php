@@ -1,4 +1,8 @@
+  @php
 
+  $clients_data = App\Models\clientsmodel::get();
+
+  @endphp
     <section>
         <div class="container">
           <div class="title center">
@@ -9,24 +13,11 @@
           <div class="section-content">
             <div class="boxes clients">
               <div class="row">
+                @foreach($clients_data as $item)
                 <div class="col-sm-4 col-xs-6 border-right border-bottom">
-                  <img src="frontend/images/clients/1.png" alt="" data-animated="true" class="client-image">
+                  <img src="{{url('storage/client/',$item -> logo)}}" alt="" data-animated="true" class="client-image">
                 </div>
-                <div class="col-sm-4 col-xs-6 border-right border-bottom">
-                  <img src="frontend/images/clients/2.png" alt="" data-animated="true" data-delay="500" class="client-image">
-                </div>
-                <div class="col-sm-4 col-xs-6 border-bottom">
-                  <img src="frontend/images/clients/3.png" alt="" data-animated="true" data-delay="1000" class="client-image">
-                </div>
-                <div class="col-sm-4 col-xs-6 border-right">
-                  <img src="frontend/images/clients/4.png" alt="" data-animated="true" class="client-image">
-                </div>
-                <div class="col-sm-4 col-xs-6 border-right">
-                  <img src="frontend/images/clients/5.png" alt="" data-animated="true" data-delay="500" class="client-image">
-                </div>
-                <div class="col-sm-4 col-xs-6">
-                  <img src="frontend/images/clients/6.png" alt="" data-animated="true" data-delay="1000" class="client-image">
-                </div>
+                @endforeach
               </div>
               <!-- end of row-->
             </div>

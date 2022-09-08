@@ -44,6 +44,7 @@
 @include('frontend.section.vision')
 @include('frontend.section.portfolio')
 @include('frontend.section.clients')
+@include('frontend.section.testimonial')
 @include('frontend.section.portfolio')
 @include('frontend.section.blog')
 

@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\adminController;
+use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\admin\AdminAuthController;
 use App\Http\Controllers\admin\AdminPageController;
 use App\Http\Controllers\admin\PermissionController;
+use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\frontend\FrontendController;
 
 
@@ -42,11 +44,12 @@ Route::group(['middleware'=>'admin'],function(){
     Route::resource('settings',SettingsController::class);
     // Slider Route
     Route::resource('slider',SliderController::class);
+    //testimonialController route
+    Route::resource('testimonial',TestimonialController::class);
+    //Client Controller Route
+    Route::resource('client',ClientController::class);
     
 });
-
-
-
 
 
 
