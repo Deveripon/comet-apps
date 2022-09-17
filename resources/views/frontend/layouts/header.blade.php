@@ -11,7 +11,7 @@
       <div class="menu-extras">
         <div class="menu-item">
           <!-- Shopping cart-->
-          <div class="cart">
+          {{-- <div class="cart">
             <a href="#">
               <i class="ti-bag"></i><span class="cart-number">2</span>
             </a>
@@ -48,7 +48,7 @@
               <p><a href="#" class="btn btn-color btn-block btn-sm">Checkout</a>
               </p>
             </div>
-          </div>
+          </div> --}}
           <!-- End shopping cart-->
         </div>
         <div class="menu-item">
@@ -84,9 +84,9 @@
       <div id="navigation">
         <!-- Navigation Menu-->
         <ul class="navigation-menu">
-          <li class="has-submenu">
+          <li class="">
             <a href="{{route('home.page')}}">Home</a>
-            <ul class="submenu megamenu">
+            {{-- <ul class="submenu megamenu">
               <li>
                 <ul>
                   <li>
@@ -159,11 +159,11 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="has-submenu">
-            <a href="#">Pages</a>
-            <ul class="submenu megamenu">
+          <li class="">
+            <a href="#"> Our Service</a>
+            {{-- <ul class="submenu megamenu">
               <li>
                 <ul>
                   <li>
@@ -214,11 +214,11 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="has-submenu">
-            <a href="#">Elements</a>
-            <ul class="submenu megamenu">
+          <li class="">
+            <a href="#">Pricing</a>
+            {{-- <ul class="submenu megamenu">
               <li>
                 <ul>
                   <li>
@@ -275,11 +275,11 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="has-submenu">
+          <li class="">
             <a href="#">Portfolio</a>
-            <ul class="submenu">
+            {{-- <ul class="submenu">
               <li class="has-submenu">
                 <a href="#">Boxed</a>
                 <ul class="submenu">
@@ -316,11 +316,11 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="has-submenu">
+          <li class="">
             <a href="#">Blog</a>
-            <ul class="submenu">
+            {{-- <ul class="submenu">
               <li>
                 <a href="blog-fixed-image.html">Fixed Image</a>
               </li>
@@ -366,35 +366,107 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> --}}
           </li>
-          <li class="has-submenu">
-            <a href="#">Shop</a>
-            <ul class="submenu">
+          <li class="">
+            <a href="#">About Us</a>
+            {{-- <ul class="submenu">
+              <li>
+                <a href="blog-fixed-image.html">Fixed Image</a>
+              </li>
               <li class="has-submenu">
-                <a href="#">Shop Layout</a>
+                <a href="#">Classic</a>
                 <ul class="submenu">
                   <li>
-                    <a href="shop-2col.html">2 Columns</a>
+                    <a href="blog.html">No Sidebar</a>
                   </li>
                   <li>
-                    <a href="shop-3col.html">3 Columns</a>
+                    <a href="blog-sidebar.html">Right Sidebar</a>
                   </li>
                   <li>
-                    <a href="shop-4col.html">4 Columns</a>
+                    <a href="blog-sidebar-left.html">Left Sidebar</a>
                   </li>
                 </ul>
               </li>
-              <li>
-                <a href="shop-single.html">Single Product</a>
+              <li class="has-submenu">
+                <a href="#">Masonry</a>
+                <ul class="submenu">
+                  <li>
+                    <a href="blog-masonry.html">No Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-masonry-sidebar.html">Right Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-masonry-sidebar-left.html">Left Sidebar</a>
+                  </li>
+                </ul>
               </li>
-              <li>
-                <a href="shop-cart.html">Cart</a>
+              <li class="has-submenu">
+                <a href="#">Single Post</a>
+                <ul class="submenu">
+                  <li>
+                    <a href="blog-single.html">No Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-single-sidebar.html">Right Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-single-sidebar-left.html">Left Sidebar</a>
+                  </li>
+                </ul>
               </li>
+            </ul> --}}
+          </li>
+          <li class="">
+            <a href="#">Contact Us</a>
+            {{-- <ul class="submenu">
               <li>
-                <a href="shop-checkout.html">Checkout</a>
+                <a href="blog-fixed-image.html">Fixed Image</a>
               </li>
-            </ul>
+              <li class="has-submenu">
+                <a href="#">Classic</a>
+                <ul class="submenu">
+                  <li>
+                    <a href="blog.html">No Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-sidebar.html">Right Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-sidebar-left.html">Left Sidebar</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-submenu">
+                <a href="#">Masonry</a>
+                <ul class="submenu">
+                  <li>
+                    <a href="blog-masonry.html">No Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-masonry-sidebar.html">Right Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-masonry-sidebar-left.html">Left Sidebar</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="has-submenu">
+                <a href="#">Single Post</a>
+                <ul class="submenu">
+                  <li>
+                    <a href="blog-single.html">No Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-single-sidebar.html">Right Sidebar</a>
+                  </li>
+                  <li>
+                    <a href="blog-single-sidebar-left.html">Left Sidebar</a>
+                  </li>
+                </ul>
+              </li>
+            </ul> --}}
           </li>
         </ul>
         <!-- End navigation menu        -->

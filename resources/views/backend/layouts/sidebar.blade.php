@@ -25,13 +25,7 @@
                 <li class=""> 
                     <a href="{{route('client.index')}}"><i style="font-size:20px" class="fa-solid fa-address-card"></i><span>Cliens</span></a>
                 </li>
-                @endif
-        
-                @if(in_array("Our Team",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
-                <li class=""> 
-                    <a href="index.html"><i style="font-size:20px" class="fa-solid fa-users"></i><span>Our Team</span></a>
-                </li>
-                @endif
+                @endif        
 
                 @if(in_array("Portfolio",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
                 <li class="submenu">
