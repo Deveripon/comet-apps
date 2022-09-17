@@ -117,8 +117,13 @@ $(document).ready(function(){
          $('.slider_image_preview').attr('src',image_url);
      })
 })
- 
+$(document).ready(function(){
 
+        $('.icon-box').click(function(){
+            $('.icon-box').removeClass("active-icon");
+            $(this).addClass("active-icon");           
+     });
 
+});
 
 })(jQuery);

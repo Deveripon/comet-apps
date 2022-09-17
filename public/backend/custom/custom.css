@@ -1,0 +1,30 @@
+.modal  .modal-content {
+	width: 1000px !important;
+}
+code.hidden{
+    display:none
+}
+.icon-box{   
+        width: 80px;
+        height: 80px;
+        background: #ccc;
+        margin: 2px;      
+        border: 1px solid transparent;
+        border-radius: 5px;
+        text-align: center;        
+}
+.active-icon{
+    background-color:pink;
+}
+.icon-box:hover{
+    transform: scale(1.1);
+    transition: .3s;
+    background-color:pink;
+    border-color: #ccc;
+    
+}
+
+.icon-box i{
+ font-size: 20px;
+ line-height: 80px;
+}

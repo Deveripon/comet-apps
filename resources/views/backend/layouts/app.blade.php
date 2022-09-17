@@ -24,6 +24,8 @@
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="{{asset('backend/assets/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('backend/custom/custom.css')}}">
+        <link rel="stylesheet" href="{{asset('backend/assets/icons/themify-icons.css')}}">
 
 		{{-- data tables --}}
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css"/>
@@ -99,6 +101,7 @@
 		<!-- Custom JS -->
 		<script  src="{{asset('backend/assets/js/script.js')}}"></script>
 		<script  src="{{asset('backend/custom/custom.js')}}"></script>
+		<script src="https://kit.fontawesome.com/2ab099f38c.js" crossorigin="anonymous"></script>
 
     </body>
 

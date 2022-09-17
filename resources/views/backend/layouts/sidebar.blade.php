@@ -25,7 +25,12 @@
                 <li class=""> 
                     <a href="{{route('client.index')}}"><i style="font-size:20px" class="fa-solid fa-address-card"></i><span>Cliens</span></a>
                 </li>
-                @endif        
+                @endif   
+                @if(in_array("Expertise",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
+                <li class=""> 
+                    <a href="{{route('expertise.index')}}"><i style="font-size:20px" class="fa-solid fa-biohazard"></i><span>Expertise</span></a>
+                </li>
+                @endif       
 
                 @if(in_array("Portfolio",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
                 <li class="submenu">
