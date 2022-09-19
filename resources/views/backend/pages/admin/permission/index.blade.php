@@ -79,7 +79,7 @@
         <div class="card">
             <div class="card-header justify-content-between d-flex">
                 <h4 class="card-title">Edit Permission</h4>
-                <a class="text-info btn btn-outline-info" href="{{route("permission.index")}}">Back</a>
+                <a class="text-info btn btn-outline-info" href="{{route('permission.index')}}">Back</a>
             </div>
             <div class="card-body">
                 @include('validate')

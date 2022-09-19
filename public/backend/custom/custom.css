@@ -1,9 +1,7 @@
 .modal  .modal-content {
 	width: 1000px !important;
 }
-code.hidden{
-    display:none
-}
+
 .icon-box{   
         width: 80px;
         height: 80px;
@@ -11,7 +9,8 @@ code.hidden{
         margin: 2px;      
         border: 1px solid transparent;
         border-radius: 5px;
-        text-align: center;        
+        text-align: center;  
+    
 }
 .active-icon{
     background-color:pink;
@@ -27,4 +26,8 @@ code.hidden{
 .icon-box i{
  font-size: 20px;
  line-height: 80px;
+ cursor:pointer;  
+}
+.icon-box .preview-icon code{
+   display: none;
 }

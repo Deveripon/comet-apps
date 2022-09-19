@@ -121,9 +121,21 @@ $(document).ready(function(){
 
         $('.icon-box').click(function(){
             $('.icon-box').removeClass("active-icon");
-            $(this).addClass("active-icon");           
+            $(this).addClass("active-icon");                  
      });
 
 });
+
+$(document).ready(function(){
+
+  $('.icon-box .preview-icon i').click(function(){
+    $icon_code =  $(this).attr('class');
+    $('input.expertise-icon').val($icon_code);
+
+
+  });  
+
+});
+
 
 })(jQuery);

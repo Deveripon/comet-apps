@@ -2,9 +2,7 @@
 
 @section('main')
 
-
 @php
-
   $slider = App\Models\Slider::get()
 @endphp
 

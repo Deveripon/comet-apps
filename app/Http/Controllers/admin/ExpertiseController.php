@@ -14,11 +14,15 @@ class ExpertiseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $expertise = Expertise::latest()->get()->where(['status' == true &&  'trash' == false]);
+    {  
+        
+         $expertise = Expertise::latest()->get()->where('status', '=', true );
         return view('backend.pages.admin.expertise.index',[
             'expertise' => $expertise,
             'form_type' => 'create_form'
         ]);
+
+
     }
 
     /**
@@ -39,7 +43,22 @@ class ExpertiseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //data validate
+        $this -> validate($request,[
+            'title'               => 'required',
+            'description'         => 'required',
+            'icon'                => 'required'
+        ]);
+
+        //data store
+        Expertise::create([
+            'title'               => $request -> title,
+            'desc'                => $request -> description,
+            'icon'                => $request -> icon,  
+        ]);
+
+        //return back
+        return back() -> with('success','Success');
     }
 
     /**
@@ -61,7 +80,13 @@ class ExpertiseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $expertise_id = Expertise::findOrFail($id);
+        $expertise = Expertise::latest()->get()->where('status', '=', true );
+        return view('backend.pages.admin.expertise.index',[
+            'expertise'         => $expertise,
+            'form_type'         => 'edit_form',
+            'expertise_id'      => $expertise_id
+        ]);
     }
 
     /**
@@ -84,6 +109,9 @@ class ExpertiseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //destroy
+        $expertise_id = Expertise::findOrFail($id) -> delete();
+        //return back
+        return back() -> with('success-main','deleted success');
     }
 }

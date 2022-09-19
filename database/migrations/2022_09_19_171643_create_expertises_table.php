@@ -19,10 +19,13 @@ return new class extends Migration
             $table->string('title');
             $table->string('desc');
             $table->boolean('status') -> default(true);
-            $table->boolean('trash') -> default(true);
+            $table->boolean('trash') -> default(false);
             $table->timestamps();
         });
     }
+
+
+
 
     /**
      * Reverse the migrations.
