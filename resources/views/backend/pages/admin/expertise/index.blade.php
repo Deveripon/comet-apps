@@ -3,10 +3,6 @@
 @section('main')
 
 
-{{-- @php
-   $slider_item = App\Models\Slider::latest()->get()
-@endphp --}}
-
 
 <div class="row">
     <div class="col-lg-8">

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Expertise;
+use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ExpertiseController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +15,13 @@ class ExpertiseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-        
-         $expertise = Expertise::latest()->get()->where('status', '=', true );
-        return view('backend.pages.admin.expertise.index',[
-            'expertise' => $expertise,
-            'form_type' => 'create_form'
+    {
+        //return view
+        $category = Category::latest()->get();
+        return view('backend.pages.admin.category.index',[
+            'category' => $category,
+            'form_type' => 'create_form',
         ]);
-
-
     }
 
     /**
@@ -43,22 +42,22 @@ class ExpertiseController extends Controller
      */
     public function store(Request $request)
     {
-        //data validate
+        
+        //validate the requests
         $this -> validate($request,[
-            'title'               => 'required',
-            'description'         => 'required',
-            'icon'                => 'required'
+            'title' => ['required','unique:categories'],
+        ]);
+        
+    
+        //data store to database
+        Category::create([
+            'title' => $request->title,
+            'slug'  =>Str::slug($request->title),
         ]);
 
-        //data store
-        Expertise::create([
-            'title'               => $request -> title,
-            'desc'                => $request -> description,
-            'icon'                => $request -> icon,  
-        ]);
 
         //return back
-        return back() -> with('success','Success');
+        return back()->with('success','Category added successfully');
     }
 
     /**
@@ -79,13 +78,13 @@ class ExpertiseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        $expertise_id = Expertise::findOrFail($id);
-        $expertise = Expertise::latest()->get()->where('status', '=', true );
-        return view('backend.pages.admin.expertise.index',[
-            'expertise'         => $expertise,
-            'form_type'         => 'edit_form',
-            'expertise_id'      => $expertise_id
+    {      
+         $category_id = Category::findOrFail($id);
+         $category = Category::latest()->get();
+        return view('backend.pages.admin.category.index',[
+            'category' => $category,
+            'form_type' => 'edit_form',
+            'category_id' => $category_id,
         ]);
     }
 
@@ -97,8 +96,23 @@ class ExpertiseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   
+        $category = Category::findOrFail($id);
+          //validate the requests
+        $this -> validate($request,[
+            'title' => ['required',],
+        ]);
+        
+    
+        //data store to database
+        $category -> update([
+            'title' => $request->title,
+            'slug'  =>Str::slug($request->title),
+        ]);
+
+
+        //return back
+        return back()->with('success','Category Updated successfully');
     }
 
     /**
@@ -109,9 +123,8 @@ class ExpertiseController extends Controller
      */
     public function destroy($id)
     {
-        //destroy
-        $expertise_id = Expertise::findOrFail($id) -> delete();
-        //return back
-        return back() -> with('success-main','deleted success');
+        $categories = Category::findOrFail($id);
+        $categories -> delete();
+        return back() -> with('success','Deleted');
     }
 }

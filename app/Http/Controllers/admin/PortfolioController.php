@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Expertise;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ExpertiseController extends Controller
+class PortfolioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +14,12 @@ class ExpertiseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-        
-         $expertise = Expertise::latest()->get()->where('status', '=', true );
-        return view('backend.pages.admin.expertise.index',[
-            'expertise' => $expertise,
-            'form_type' => 'create_form'
+    { 
+        $portfolio = Portfolio::latest() -> get();
+        return view('backend.pages.admin.portfolios.index',[
+        'portfolio' => $portfolio,
+        'form_type'  => 'create_form',
         ]);
-
-
     }
 
     /**
@@ -43,22 +40,7 @@ class ExpertiseController extends Controller
      */
     public function store(Request $request)
     {
-        //data validate
-        $this -> validate($request,[
-            'title'               => 'required',
-            'description'         => 'required',
-            'icon'                => 'required'
-        ]);
-
-        //data store
-        Expertise::create([
-            'title'               => $request -> title,
-            'desc'                => $request -> description,
-            'icon'                => $request -> icon,  
-        ]);
-
-        //return back
-        return back() -> with('success','Success');
+        //
     }
 
     /**
@@ -80,13 +62,7 @@ class ExpertiseController extends Controller
      */
     public function edit($id)
     {
-        $expertise_id = Expertise::findOrFail($id);
-        $expertise = Expertise::latest()->get()->where('status', '=', true );
-        return view('backend.pages.admin.expertise.index',[
-            'expertise'         => $expertise,
-            'form_type'         => 'edit_form',
-            'expertise_id'      => $expertise_id
-        ]);
+        //
     }
 
     /**
@@ -109,9 +85,6 @@ class ExpertiseController extends Controller
      */
     public function destroy($id)
     {
-        //destroy
-        $expertise_id = Expertise::findOrFail($id) -> delete();
-        //return back
-        return back() -> with('success-main','deleted success');
+        //
     }
 }

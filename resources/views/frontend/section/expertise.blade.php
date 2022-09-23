@@ -28,56 +28,40 @@ $expertise = App\Models\Expertise::latest()->get()->where('status', '=', true ) 
                 <div class="services">
                     <div class="row">
 
+                        @php
+                            $i = 1;
+                        @endphp
 
                         @foreach($expertise as $item)
+                            
+                            @php
 
-                        <div class="col-sm-6 {{$class}}">
-                            <div class="service"><i class="{{$item ->icon}}"></i>
+                                if($i == 1){
+                                    $class_name = "border-bottom border-right";
+                                }else if ($i == 2){
+                                    $class_name = "border-bottom";
+                                }else if ($i == 3) {
+                                    $class_name = "border-bottom border-right";
+                                }else if ($i == 4) {
+                                    $class_name = "border-bottom";
+                                }
+
+                            @endphp
+
+                        <div class="col-sm-6 {{$class_name}}">
+                            <div class="service"><i class="{{$item -> icon}}"></i>
                                 <h4>{{$item -> title}}</h4>
                                 <hr>
-                                aa <p class="alt-paragraph">{{$item -> desc}}</p>
+                                <p class="alt-paragraph">{{$item -> desc}}</p>
                             </div>
                             <!-- end of service-->
                         </div>
 
+                            @php
+                                $i++
+                            @endphp
+
                         @endforeach
-                        <!-- <div class="col-sm-6 border-bottom border-right">
-                <div class="service"><i class="icon-focus"></i><span class="back-icon"><i class="icon-focus"></i></span>
-                  <h4>Branding</h4>
-                  <hr>
-                  <p class="alt-paragraph">Facilis doloribus illum quis, expedita mollitia voluptate non iure, perspiciatis repellat eveniet volup.</p>
-                </div>
-
-              </div> -->
-
-                        <!-- <div class="col-sm-6 border-bottom">
-                <div class="service"><i class="icon-layers"></i><span class="back-icon"><i class="icon-layers"></i></span>
-                  <h4>Interactive</h4>
-                  <hr>
-                  <p class="alt-paragraph">Commodi totam esse quis alias, nihil voluptas repellat magni, id fuga perspiciatis, ut quia beatae, accus.</p>
-                </div>
-
-              </div> -->
-
-                        <!-- <div class="col-sm-6 border-bottom border-right">
-                <div class="service"><i class="icon-mobile"></i><span class="back-icon"><i class="icon-mobile"></i></span>
-                  <h4>Production</h4>
-                  <hr>
-                  <p class="alt-paragraph">Doloribus qui asperiores nisi placeat volup eum, nemo est, praesentium fuga alias sit quis atque accus.</p>
-                </div>
-
-              </div> -->
-
-                        <!--  <div class="col-sm-6 border-bottom">
-                <div class="service"><i class="icon-globe"></i><span class="back-icon"><i class="icon-globe"></i></span>
-                  <h4>Editing</h4>
-                  <hr>
-                  <p class="alt-paragraph">Aliquid repellat facilis quis. Sequi excepturi quis dolorem eligendi deleniti fuga rerum itaque.</p>
-                </div>
-
-              </div> -->
-
-
                     </div>
                 </div>
                 <!-- end of row-->

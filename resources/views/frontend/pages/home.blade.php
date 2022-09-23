@@ -43,7 +43,6 @@ $slider = App\Models\Slider::get()
 @include('frontend.section.portfolio')
 @include('frontend.section.clients')
 @include('frontend.section.testimonial')
-@include('frontend.section.portfolio')
 @include('frontend.section.blog')
 
 @endsection

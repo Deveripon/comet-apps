@@ -1,3 +1,12 @@
+
+
+@php
+  $visions = App\Models\Vision::get() -> where('status', true)->where('trash',false) -> take(4);;
+@endphp
+
+
+
+
 <section>
     <div class="container-fluid">
       <div class="row">
@@ -19,34 +28,17 @@
             <hr>
           </div>
           <div class="row">
-            <div class="col-sm-6">
+            @foreach ($visions as $item) 
+              <div class="col-sm-6">
               <div class="text-box">
-                <h4 class="upper small-heading">Strategy</h4>
-                <p>Natus totam adipisci illum aut nihil consequuntur ut, ducimus alias iusto facili.</p>
+                <h4 class="upper small-heading">{{$item -> title}}</h4>
+                <p>{{$item -> desc}}</p>
               </div>
               <!-- end of text box-->
             </div>
-            <div class="col-sm-6">
-              <div class="text-box">
-                <h4 class="upper small-heading">Design</h4>
-                <p>Nisi, ut commodi dolor, quae doloremque earum alias accusantium sint.</p>
-              </div>
-              <!-- end of text box-->
-            </div>
-            <div class="col-sm-6">
-              <div class="text-box">
-                <h4 class="upper small-heading">Skills</h4>
-                <p>Nesciunt est eaque, expedita cum minima reprehenderit? Harum vero dolorum.</p>
-              </div>
-              <!-- end of text box-->
-            </div>
-            <div class="col-sm-6">
-              <div class="text-box">
-                <h4 class="upper small-heading">Power</h4>
-                <p>Fuga ipsum, repellendus? Architecto commodi magni non nihil et iusto.</p>
-              </div>
-              <!-- end of text box-->
-            </div>
+            @endforeach
+            
+      
           </div>
           <!-- end of row              -->
         </div>

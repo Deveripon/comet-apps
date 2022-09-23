@@ -30,15 +30,19 @@
                 <li class=""> 
                     <a href="{{route('expertise.index')}}"><i style="font-size:20px" class="fa-solid fa-biohazard"></i><span>Expertise</span></a>
                 </li>
+                @endif 
+                @if(in_array("Vision",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
+                <li class=""> 
+                    <a href="{{route('vision.index')}}"><i style="font-size:20px" class="fa-solid fa-biohazard"></i><span>Vision</span></a>
+                </li>
                 @endif       
 
                 @if(in_array("Portfolio",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
                 <li class="submenu">
                     <a href="#"><i class="fa-solid fa-icons"></i> <span> Portfolio</span> <span class="menu-arrow"></span></a>
                     <ul style="display: none;">
-                        <li><a href="invoice-report.html">All portfolio</a></li>
-                        <li><a href="invoice-report.html">Category</a></li>
-                        <li><a href="invoice-report.html">Tags</a></li>
+                        <li><a href="{{route('portfolio.index')}}">All portfolio</a></li>
+                        <li><a href="{{route('port_category.index')}}">Category</a></li>
                     </ul>
                 </li>
                 @endif

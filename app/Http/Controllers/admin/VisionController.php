@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Expertise;
+use App\Models\Vision;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ExpertiseController extends Controller
+class VisionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,15 +14,12 @@ class ExpertiseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
-        
-         $expertise = Expertise::latest()->get()->where('status', '=', true );
-        return view('backend.pages.admin.expertise.index',[
-            'expertise' => $expertise,
-            'form_type' => 'create_form'
+    {
+        $visions = Vision::latest()-> get()->where('status', true)->where('trash',false)->take(4);
+        return view('backend.pages.admin.vision.index',[
+            'visions'  => $visions,
+            'form_type' => 'create_form',
         ]);
-
-
     }
 
     /**
@@ -42,23 +39,19 @@ class ExpertiseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //data validate
+    {   
+        //validate the request
         $this -> validate($request,[
-            'title'               => 'required',
-            'description'         => 'required',
-            'icon'                => 'required'
+        'title'         =>'required',
+        'desc'          =>'required',
         ]);
-
-        //data store
-        Expertise::create([
-            'title'               => $request -> title,
-            'desc'                => $request -> description,
-            'icon'                => $request -> icon,  
+        //data stored in database  
+        Vision::create([
+            'title'         =>$request->title,
+            'desc'          =>$request->desc,
         ]);
-
-        //return back
-        return back() -> with('success','Success');
+        //return
+        return back() -> with('success','Vision added successfully');
     }
 
     /**
@@ -80,13 +73,7 @@ class ExpertiseController extends Controller
      */
     public function edit($id)
     {
-        $expertise_id = Expertise::findOrFail($id);
-        $expertise = Expertise::latest()->get()->where('status', '=', true );
-        return view('backend.pages.admin.expertise.index',[
-            'expertise'         => $expertise,
-            'form_type'         => 'edit_form',
-            'expertise_id'      => $expertise_id
-        ]);
+        //
     }
 
     /**
@@ -109,9 +96,6 @@ class ExpertiseController extends Controller
      */
     public function destroy($id)
     {
-        //destroy
-        $expertise_id = Expertise::findOrFail($id) -> delete();
-        //return back
-        return back() -> with('success-main','deleted success');
+        //
     }
 }
