@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\Settings;
+use App\Models\portfolio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,4 +20,16 @@ class FrontendController extends Controller
         'site_details'  => $site_details
        ]);
     }
+
+    
+   //show Home Pages
+    public function ShowSinglePortfolioPage($slug)
+    {
+    $portfolio = portfolio::where('slug', $slug) -> first();
+    return view('frontend.pages.single',[
+        'portfolio'   => $portfolio
+    ]);
+    }
+
+ 
 }

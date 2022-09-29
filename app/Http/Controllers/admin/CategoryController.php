@@ -103,7 +103,6 @@ class CategoryController extends Controller
             'title' => ['required',],
         ]);
         
-    
         //data store to database
         $category -> update([
             'title' => $request->title,

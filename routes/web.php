@@ -15,7 +15,7 @@ use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\frontend\FrontendController;
-
+use App\Http\Controllers\portSingleController;
 
 //Admin Pages routes
 
@@ -71,3 +71,4 @@ Route::group(['middleware'=>'admin'],function(){
 
 // Show Home Page
 Route::get('/',[FrontendController::class,'ShowHomePage'])-> name('home.page');
+Route::get('/single_portfolio/{slug}',[FrontendController::class,'ShowSinglePortfolioPage'])-> name('single_portfolio.page');

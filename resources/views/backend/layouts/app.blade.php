@@ -102,7 +102,7 @@
 		<script  src="{{asset('backend/assets/js/script.js')}}"></script>
 		<script  src="{{asset('backend/custom/custom.js')}}"></script>
 		<script src="https://kit.fontawesome.com/2ab099f38c.js" crossorigin="anonymous"></script>
-
-    </body>
+		<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+		<script>CKEDITOR.replace("p_desc");</script>
 
 </html>
