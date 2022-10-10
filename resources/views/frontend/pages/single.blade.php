@@ -16,7 +16,7 @@
           <div class="v-center">
             <div class="container">
               <div class="title center">
-                <h1 class="upper">Single Item<span class="red-dot"></span></h1>
+                <h1 class="upper">Our Portfolios<span class="red-dot"></span></h1>
                 <h4>Our best work.</h4>
                 <hr>
               </div>
@@ -66,8 +66,8 @@
             @endphp
             @endforeach
                
-       
 
+            
           </div>
           <!-- end of row-->
         </div>

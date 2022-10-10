@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Post;
 use App\Models\Settings;
 use App\Models\portfolio;
 use Illuminate\Http\Request;
@@ -29,6 +30,19 @@ class FrontendController extends Controller
     return view('frontend.pages.single',[
         'portfolio'   => $portfolio
     ]);
+    }
+
+    /**
+     * Show Blog Page
+     * --------------------------------
+     * Blog Page will appear by this method when you click on the blog menu item
+    */
+    public function ShowBlogPage()
+    {
+        $posts = Post::latest() -> where('status',true) -> where('trash',false)->paginate(4);
+        return view('frontend.pages.blog',[
+            'posts' => $posts
+        ]);
     }
 
  

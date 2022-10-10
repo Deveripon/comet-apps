@@ -1,68 +1,69 @@
-.modal  .modal-content {
-	width: 1000px !important;
+.modal .modal-content {
+    width: 1000px !important;
 }
 
-.icon-box{   
-        width: 80px;
-        height: 80px;
-        background: #ccc;
-        margin: 2px;      
-        border: 1px solid transparent;
-        border-radius: 5px;
-        text-align: center;  
-    
+.icon-box {
+    width: 80px;
+    height: 80px;
+    background: #ccc;
+    margin: 2px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    text-align: center;
 }
-.active-icon{
-    background-color:pink;
+.active-icon {
+    background-color: pink;
 }
-.icon-box:hover{
+.icon-box:hover {
     transform: scale(1.1);
-    transition: .3s;
-    background-color:pink;
+    transition: 0.3s;
+    background-color: pink;
     border-color: #ccc;
-    
 }
 
-.icon-box i{
- font-size: 20px;
- line-height: 80px;
- cursor:pointer;  
+.icon-box i {
+    font-size: 20px;
+    line-height: 80px;
+    cursor: pointer;
 }
-.icon-box .preview-icon code{
-   display: none;
+.icon-box .preview-icon code {
+    display: none;
 }
-.gallery_img_preview_section{
+.gallery_img_preview_section {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-   
 }
-.gallery_img_preview_section .gallery_item{
+.gallery_img_preview_section .gallery_item {
     width: 35%;
     height: 100%;
     margin: 2px;
     position: relative;
 }
-.gallery_img_preview_section .gallery_item i{
+.gallery_img_preview_section .gallery_item i {
     position: absolute;
     top: 2px;
     right: 2px;
     color: red;
     display: none;
     cursor: pointer;
-
 }
-.gallery_img_preview_section .gallery_item:hover i{
+.gallery_img_preview_section .gallery_item:hover i {
     display: block;
-   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.gallery_img_preview_section img{
+.gallery_img_preview_section img {
     width: 100%;
     height: 100px;
-    object-fit:fill;
+    object-fit: fill;
 }
-.step_accordion{
+.step_accordion {
     margin-bottom: 4px;
+}
+.gallery_post,
+.audio_post,
+.video_post {
+    display: none;
 }
