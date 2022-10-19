@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  
-<!-- Mirrored from themes.hody.co/html/comet/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jan 2017 09:39:31 GMT -->
-<head>
+
+  <!-- Mirrored from themes.hody.co/html/comet/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jan 2017 09:39:31 GMT -->
+
+  <head>
     <title>@yield('title','Comet | Creative Multi-Purpose HTML Template')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -30,19 +31,22 @@
   </head>
 
   <body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0"
+      nonce="BhwIgnfr"></script>
     @include("frontend.layouts.preloader")
     <!-- Navigation Bar-->
     @include('frontend.layouts.header')
     <!-- End Navigation Bar-->
-    
-   @section('main')
 
-   @show
-   
-     <!--   widgets Section-->
-     @include('frontend.layouts.widgets')
-     <!--   End widgets Section-->   
-   
+    @section('main')
+
+    @show
+
+    <!--   widgets Section-->
+    @include('frontend.layouts.widgets')
+    <!--   End widgets Section-->
+
     <!-- Footer-->
     @include('frontend.layouts.footer')
     <!-- end of footer-->
@@ -54,5 +58,6 @@
   </body>
 
 
-<!-- Mirrored from themes.hody.co/html/comet/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jan 2017 09:39:31 GMT -->
+  <!-- Mirrored from themes.hody.co/html/comet/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 11 Jan 2017 09:39:31 GMT -->
+
 </html>

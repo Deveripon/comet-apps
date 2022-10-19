@@ -23,6 +23,13 @@
   </div>
 </section>
 
+@php
+if(isset($_GET['search'])){
+$key = $_GET['search'];
+$posts = App\Models\Post::where('title','LIKE','%'.$key.'%') ->orwhere('content','LIKE','%'.$key.'%')->get();
+}
+@endphp
+
 <!--Page Content-->
 <section>
   <div class="container">
@@ -32,8 +39,8 @@
           @foreach ($posts as $post )
           <article class="post-single">
             <div class="post-info">
-              <h2><a href="#">{{$post -> title}}</a></h2>
-              <h6 class="upper"><span>By </span><a href="#">{{$post -> author -> name}}</a><span
+              <h2><a href="{{route('blog.single.post',$post -> slug)}}">{{$post -> title}}</a></h2>
+              <h6 class=" upper"><span>By </span><a href="#">{{$post -> author -> name}}</a><span
                   class="dot"></span><span>{{date('F d, Y',strtotime($post -> created_at))}}</span><span
                   class="dot"></span>
                 @foreach ($post -> tag as $tagss)
@@ -63,9 +70,7 @@
             @if($featured -> post_type == 'audio')
             <div class="post-media">
               <div class="media-audio">
-                <iframe
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/51057943&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false"
-                  frameborder="0"></iframe>
+                {!! htmlspecialchars_decode($featured -> audio_post)!!}
               </div>
             </div>
             @endif
@@ -104,12 +109,15 @@
 
             <div class="post-body">
               {!! Str::of(htmlspecialchars_decode($post -> content))-> words(50,'....') !!}
-              <p><a href="#" class="btn btn-color btn-sm">Read More</a>
+              <p><a href="{{route('blog.single.post',$post -> slug)}}" class="btn btn-color btn-sm">Read More</a>
               </p>
             </div>
           </article>
           @endforeach
 
+        </div>
+        <div class="d-flex justify-content-center">
+          {!! $posts->links() !!}
         </div>
         <ul class="pagination">
           <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="ti-arrow-left"></i></span></a>

@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Tag;
-use App\Models\Post;
-use App\Models\PostTag;
-use Illuminate\Support\Str;
-use App\Models\CategoryPost;
-use App\Models\PostCategory;
+use GuzzleHttp\Utils;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use function GuzzleHttp\json_encode;
 use Intervention\Image\Facades\Image;
 
-class PostController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +19,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $tags = Tag::latest()->get()->where('status', true)->where('trash', false);
-        $post_category = CategoryPost::latest()->get()->where('status', true)->where('trash', false);
-        $posts = Post::latest()->where('status', true)->where('trash', false) ->get();
-        return view('backend.pages.admin.post.index', [
-            'posts' => $posts,
-            'form_type' => 'create_form',
-            'post_category'    => $post_category,
-            'tags' => $tags
-
+        $products = Product::latest()->get()->where('status', true)->where('trash', false);
+        return view('backend.pages.admin.products.index', [
+            'form_type'         => 'create_form',
+            'products'          => $products,
         ]);
     }
 
@@ -50,19 +43,14 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {  
-         //validate request
-          $this -> validate($request,[
-            'title' =>'required',
-            'p_desc' =>'required',
-        ]);
-
+    {
+      
         //featured image management
         if ($request->hasFile('featured_img')) {
             $files = $request->file('featured_img');
             $file_name = 'post_' . md5(time() . rand()) . '.' . $files->clientextension();
             $intervention = Image::make($files->getrealpath());
-            $intervention->save(storage_path('app/public/post_image/') . $file_name);
+            $intervention->save(storage_path('app/public/product_image/') . $file_name);
         }
         ///////////////////////////////////////////////////////
 
@@ -73,36 +61,45 @@ class PostController extends Controller
             foreach ($gal_files as $item) {
                 $gall_name = 'gallery_' . md5(time() . rand()) . '.' . $item->clientextension();
                 $inter = Image::make($item->getrealpath());
-                $inter->save(storage_path('app/public/post_image/') . $gall_name);
+                $inter->save(storage_path('app/public/product_image/') . $gall_name);
                 array_push($gall_array, $gall_name);
             }
         }
+
         ///////////////////////////////////////////////////////
-
-        $featured = [
-            'post_type'      => $request->post_type,
-            'video_post'     => $this -> embed_link($request -> video),
-            'audio_post'     => $request->audio,
-            'gallery_post'   => json_encode($gall_array),
-            'standard_post'  => $file_name ?? '',
-
-        ];
-        //data store to database
-        /////////////////////////////////////////////
-        $posts =  Post::create([
-            'admin_id'       => Auth()->guard('admin')->user()->id,
-            'title'          => $request->title,
-            'slug'           => $this->Slugmake($request->title),
-            'content'        => $request->p_desc,
-            'featured'       => json_encode($featured),
-            'post_type'      => $request->post_type,
+        /**
+         * Size management
+         */
+ /*        $size = [];
+        for ($i = 0; $i < count($request->size); $i++) {
+            array_push($size, [
+                'size' => $request->size[$i],
+                'hips' => $request->hips[$i],
+                'bust' => $request->bust[$i],
+                'waist' => $request->waist[$i],
+            ]);
+        }
+      */
+     
+        
+    
+     $product = Product::create([
+            'name' => $request->name,
+            'slug' => $this->Slugmake($request->name),
+            's_desc' => $request->s_desc,
+            'p_desc' => $request->p_desc,
+            'feat_image' => $file_name,
+            'gallery_image' => Utils::jsonEncode($gall_array),
+            'size' => Utils::jsonEncode($request -> size),
+            'color' => utils::jsonEncode($request -> color),
+            'r_price' => $request -> r_price,
+            's_price' => $request -> sell_price,
         ]);
-        $posts->tag()->attach($request->tags);
-        $posts->category()->attach($request->category_post);
+            /* $product->tag()->attach($request->tags); */
+            $product->category()->attach($request->product_category);
+            $product->tag()->attach($request->tags);
 
-
-
-        return back()->with('success', 'success');
+        return back() -> with('success','Product added Success');
     }
 
     /**
@@ -147,7 +144,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $posts =  Post::findOrFail($id) -> delete();
-        return back()->with('success_main','Deleted success');
+        //
     }
 }

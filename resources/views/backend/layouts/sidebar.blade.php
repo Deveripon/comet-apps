@@ -60,6 +60,17 @@
                     </ul>
                 </li>
                 @endif
+                @if(in_array("Products",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
+                <li class="submenu">
+                    <a href="#"><i class="fe fe-cart"></i> <span> Products</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul style="display: none;">
+                        <li><a href="{{route('product.index')}}">All Products</a></li>
+                        <li><a href="{{route('product-category.index')}}">Category</a></li>
+                        <li><a href="{{route('product-tag.index')}}">Tags</a></li>
+                    </ul>
+                </li>
+                @endif
 
                 @if(in_array("Admin Options",json_decode(Auth::guard('admin')-> user() ->user_role->permissions)))
                 <li class="submenu">

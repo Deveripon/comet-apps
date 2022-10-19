@@ -31,6 +31,9 @@
 		{{-- data tables --}}
 		<link rel="stylesheet" type="text/css"
 			href="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.css" />
+		<link rel="stylesheet" type="text/css"
+			href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+
 
 		<!--[if lt IE 9]>
 			<script src="backend/assets/js/html5shiv.min.js"></script>
@@ -104,16 +107,22 @@
 		<script type="text/javascript"
 			src="https://cdn.datatables.net/v/bs4/dt-1.12.1/af-2.4.0/b-2.2.3/b-html5-2.2.3/b-print-2.2.3/date-1.1.2/r-2.3.0/sc-2.0.7/sb-1.3.4/sp-2.0.2/sl-1.4.0/datatables.min.js">
 		</script>
-
 		<!-- Custom JS -->
 		<script src="{{asset('backend/assets/js/script.js')}}"></script>
 		<script src="{{asset('backend/custom/custom.js')}}"></script>
 		<script src="https://kit.fontawesome.com/2ab099f38c.js" crossorigin="anonymous"></script>
 		<script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
 		<script src="{{asset('backend/assets/js/select2.min.js')}}"></script>
+		<script type="text/javascript"
+			src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js">
+		</script>
 		<script>
 			$(".select_tag_box").select2();
 			CKEDITOR.replace("p_desc");
+			$(document).ready(function () {
+				$(".mytable").DataTable();
+				});
+			
 		</script>
 
 

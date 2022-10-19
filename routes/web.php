@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\ClientController;
 use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\admin\VisionController;
 use App\Http\Controllers\admin\PostTagController;
+use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\SettingsController;
 use App\Http\Controllers\admin\AdminAuthController;
@@ -16,9 +17,11 @@ use App\Http\Controllers\admin\AdminPageController;
 use App\Http\Controllers\admin\ExpertiseController;
 use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\PermissionController;
+use App\Http\Controllers\admin\ProductTagController;
 use App\Http\Controllers\admin\TestimonialController;
 use App\Http\Controllers\frontend\FrontendController;
 use App\Http\Controllers\admin\PostCategoryController;
+use App\Http\Controllers\admin\ProductCategoryController;
 
 //Admin Pages routes
 
@@ -68,6 +71,16 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('post/tags', PostTagController::class);
     //Blog Post Route
     Route::resource('/post', PostController::class);
+    //product category route
+    Route::resource('product-category',ProductCategoryController::class);
+    //product tag route
+    Route::resource('product-tag',ProductTagController::class);
+    //product route
+    Route::resource('product', ProductController::class);
+
+
+
+   
 });
 
 
@@ -79,3 +92,7 @@ Route::group(['middleware' => 'admin'], function () {
 Route::get('/', [FrontendController::class, 'ShowHomePage'])->name('home.page');
 Route::get('/single_portfolio/{slug}', [FrontendController::class, 'ShowSinglePortfolioPage'])->name('single_portfolio.page');
 Route::get('/blog', [FrontendController::class, 'ShowBlogPage'])->name('blog.page');
+//show blog post by category
+Route::get('/blog/category/{slug}', [FrontendController::class, 'showBlogPostByCategory'])->name('blog.category.post');
+Route::get('/blog/tag/{slug}', [FrontendController::class, 'showBlogPostByTag'])->name('blog.tag.post');
+Route::get('/blog/single/{slug}', [FrontendController::class, 'showSingleBlogPost'])->name('blog.single.post');;

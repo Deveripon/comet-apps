@@ -73,4 +73,15 @@ class Controller extends BaseController
        }
     }
 
+
+    /*
+    *Custom slug make for slug management
+    * it will replace laravel default Str::slug system
+    */
+    public function Slugmake($value)
+    {
+        $slug = strtolower($value);
+        return str_replace(' ','-',$slug);
+    }
+
 }

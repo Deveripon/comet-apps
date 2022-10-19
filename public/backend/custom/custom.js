@@ -16,7 +16,6 @@
     $(document).ready(function () {
         $(".data_table").DataTable();
     });
-
     //profile photo change button
     $(document).ready(function () {
         $(".user-image").mouseenter(function () {
@@ -166,5 +165,28 @@
             $(".audio_post").hide();
             $(".video_post").show();
         }
+    });
+
+    $().ready(function () {
+        $(".measurment").hide();
+    });
+
+    //ADD cUSTOM size AND MEASUREMENT
+    $(document).ready(function () {
+        $("#add-size-button").click(function (e) {
+            e.preventDefault();
+
+            $(".add-size-block").prepend(`
+                  
+                            <input class="form-control" type="text" name="size[]" placeholder="size">
+        `);
+        });
+    });
+
+    //ADD cUSTOM COLORS
+    $(".addd_color").click(function () {
+        $(".add-color-field").append(`
+        <input id="color" name="color[]" class="form-control" type="text">
+        `);
     });
 })(jQuery);

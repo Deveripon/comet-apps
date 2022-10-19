@@ -10,76 +10,76 @@
             </div>
             @include('validate-main')
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table mb-0 data_table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Slug</th>
-                                <th>Post Type</th>
-                                <th>Post Media</th>
-                                <th>Categories</th>
-                                <th>Tag</th>
-                                <th>Created at</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @forelse($posts as $item)
-                            <tr>
-                                <td>{{$loop -> index +1}}</td>
-                                <td>{{$item -> title}}</td>
-                                <td>{{$item -> slug}}</td>
-                                <td>
-                                    @php
-                                    $featured = json_decode($item-> featured);
-                                    echo $featured -> post_type;
-                                    @endphp
-                                </td>
-                                <td>
-                                    <ul>
-                                        @foreach ($item -> category as $cat )
-                                        <li>{{$cat -> name}}</li>
-                                        @endforeach
-                                    </ul>
-                                </td>
+                {{-- <div class="table-responsive"> --}}
+                <table id="" class="table mb-0 data_table mytable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Post Type</th>
+                            <th>Categories</th>
+                            <th>Tag</th>
+                            <th>Created at</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($posts as $item)
+                        <tr>
+                            <td>{{$loop -> index +1}}</td>
+                            <td>{{$item -> title}}</td>
+                            <td>{{$item -> slug}}</td>
+                            <td>
+                                @php
+                                $featured = json_decode($item-> featured);
+                                echo $featured -> post_type;
+                                @endphp
+                            </td>
+                            <td>
+                                <ul>
+                                    @foreach ($item -> category as $cat )
+                                    <li>{{$cat -> name}}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
 
-                                <td>
-                                    <ul>
-                                        @foreach ($item -> tag as $tagss)
-                                        @endforeach
-                                        <li>{{$tagss -> name}}</li>
-                                    </ul>
-                                </td>
+                            <td>
+                                <ul>
+                                    @foreach ($item -> tag as $tagss)
+                                    @endforeach
+                                    <li>{{$tagss -> name}}</li>
+                                </ul>
+                            </td>
 
-                                <td>{{$item -> created_at -> diffForHumans()}}</td>
-                                <td>
-                                    {{-- <a class="btn btn-sm btn-info" href="#"><i class="fa-solid fa-eye"></i></a> --}}
-                                    <a class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom"
-                                        title="edit" href="{{route('post.edit',$item -> id)}}"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
+                            <td>{{$item -> created_at -> diffForHumans()}}</td>
+                            <td>
+                                {{-- <a class="btn btn-sm btn-info" href="#"><i class="fa-solid fa-eye"></i></a> --}}
+                                <a class="btn btn-sm btn-warning" data-toggle="tooltip" data-placement="bottom"
+                                    title="edit" href="{{route('post.edit',$item -> id)}}"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
 
 
-                                    <form action="{{route('post.destroy',$item -> id)}}" method="POST"
-                                        class="d-inline delete_form">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" data-toggle="tooltip"
-                                            data-placement="bottom" title="delete" type="submit"><i
-                                                class="fa-solid fa-trash"></i>
-                                        </button>
-                                    </form>
-                                </td>
-                                @empty
-                            <tr>
-                                <td colspan="6" class='text-danger text-center'>No records found.</td>
-                            </tr>
-                            </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
+                                <form action="{{route('post.destroy',$item -> id)}}" method="POST"
+                                    class="d-inline delete_form">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-danger" data-toggle="tooltip"
+                                        data-placement="bottom" title="delete" type="submit"><i
+                                            class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                            @empty
+                        <tr>
+                            <td colspan="6" class='text-danger text-center'>No records found.</td>
+                        </tr>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+                {{--
+                </div> --}}
             </div>
         </div>
     </div>
