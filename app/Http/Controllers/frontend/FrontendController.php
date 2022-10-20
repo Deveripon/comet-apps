@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\frontend;
 
+use App\Models\Tag;
 use App\Models\Post;
+use App\Models\Product;
 use App\Models\Settings;
 use App\Models\portfolio;
+use App\Models\Categorypost;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Categorypost;
-use App\Models\Tag;
+use App\Models\CategoryProduct;
+use App\Models\TagProduct;
 
 class FrontendController extends Controller
 {
@@ -85,6 +88,56 @@ class FrontendController extends Controller
               ]); 
               
         }
+
+        /**
+         * lets show shop page
+        */
+        public function showProductPage()
+        { $product = Product::latest()->get();
+            return view('frontend.pages.shop',[
+              "product" => $product
+            ]);
+        }
+
+        /**
+         * Show Products by category
+        */
+        public function showProductByCategory($slug)
+        {
+          $category = CategoryProduct::where('slug', $slug)->first();
+          $product = $category->product;
+
+            return view('frontend.pages.shop',[
+                "product" =>   $product
+            ]);
+        }
+
+        /**
+         * Show Products by tag
+         * 
+        */
+        public function showProductByTag($slug)
+        {
+           $tags = TagProduct::where('slug', $slug)->first();
+            $product = $tags->product;
+               return view('frontend.pages.shop',[
+               "product" => $product
+               ]);
+        }
+
+        /**
+         * Show Single Product
+         * 
+        */
+        public function showSingleProduct($slug)
+        {
+            $product = Product::get()->where('slug', $slug);
+            return view('frontend.pages.product',[
+                'product' =>    $product
+            ]);
+        }
+
+
 
 
 

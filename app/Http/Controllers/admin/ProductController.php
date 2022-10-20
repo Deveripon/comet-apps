@@ -51,6 +51,8 @@ class ProductController extends Controller
             $file_name = 'post_' . md5(time() . rand()) . '.' . $files->clientextension();
             $intervention = Image::make($files->getrealpath());
             $intervention->save(storage_path('app/public/product_image/') . $file_name);
+        }else{
+            $file_name = "Image";
         }
         ///////////////////////////////////////////////////////
 
@@ -64,6 +66,8 @@ class ProductController extends Controller
                 $inter->save(storage_path('app/public/product_image/') . $gall_name);
                 array_push($gall_array, $gall_name);
             }
+        }else{
+        $file_name = "Image";
         }
 
         ///////////////////////////////////////////////////////

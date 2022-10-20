@@ -1,17 +1,17 @@
 <header id="topnav">
-    <div class="container">
-      <!-- Logo container-->
-      <div class="logo">
-        <a href="index-2.html">
-          <img src="frontend/images/logo_light.png" alt="" class="logo-light">
-          <img src="frontend/images/logo_dark.png" alt="" class="logo-dark">
-        </a>
-      </div>
-      <!-- End Logo container-->
-      <div class="menu-extras">
-        <div class="menu-item">
-          <!-- Shopping cart-->
-          {{-- <div class="cart">
+  <div class="container">
+    <!-- Logo container-->
+    <div class="logo">
+      <a href="index-2.html">
+        <img src="frontend/images/logo_light.png" alt="" class="logo-light">
+        <img src="frontend/images/logo_dark.png" alt="" class="logo-dark">
+      </a>
+    </div>
+    <!-- End Logo container-->
+    <div class="menu-extras">
+      <div class="menu-item">
+        <!-- Shopping cart-->
+        {{-- <div class="cart">
             <a href="#">
               <i class="ti-bag"></i><span class="cart-number">2</span>
             </a>
@@ -49,44 +49,45 @@
               </p>
             </div>
           </div> --}}
-          <!-- End shopping cart-->
-        </div>
-        <div class="menu-item">
-          <!-- Search Form-->
-          <div class="search">
-            <a href="#">
-              <i class="ti-search"></i>
-            </a>
-            <div class="search-form">
-              <form action="#" class="inline-form">
-                <div class="input-group">
-                  <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-color"><span><i class="ti-search"></i></span>
-                  </button>
-                  </span>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- End search form-->
-        </div>
-        <div class="menu-item">
-          <!-- Mobile menu toggle-->
-          <a class="navbar-toggle">
-            <div class="lines">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </a>
-          <!-- End mobile menu toggle-->
-        </div>
+        <!-- End shopping cart-->
       </div>
-      <div id="navigation">
-        <!-- Navigation Menu-->
-        <ul class="navigation-menu">
-          <li class="">
-            <a href="{{route('home.page')}}">Home</a>
-            {{-- <ul class="submenu megamenu">
+      <div class="menu-item">
+        <!-- Search Form-->
+        <div class="search">
+          <a href="#">
+            <i class="ti-search"></i>
+          </a>
+          <div class="search-form">
+            <form action="#" class="inline-form">
+              <div class="input-group">
+                <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn"><button
+                    type="button" class="btn btn-color"><span><i class="ti-search"></i></span>
+                  </button>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- End search form-->
+      </div>
+      <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a class="navbar-toggle">
+          <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </a>
+        <!-- End mobile menu toggle-->
+      </div>
+    </div>
+    <div id="navigation">
+      <!-- Navigation Menu-->
+      <ul class="navigation-menu">
+        <li class="">
+          <a href="{{route('home.page')}}">Home</a>
+          {{-- <ul class="submenu megamenu">
               <li>
                 <ul>
                   <li>
@@ -160,10 +161,10 @@
                 </ul>
               </li>
             </ul> --}}
-          </li>
-          <li class="">
-            <a href=""> Our Service</a>
-            {{-- <ul class="submenu megamenu">
+        </li>
+        <li class="">
+          <a href=""> Our Service</a>
+          {{-- <ul class="submenu megamenu">
               <li>
                 <ul>
                   <li>
@@ -215,10 +216,10 @@
                 </ul>
               </li>
             </ul> --}}
-          </li>
-          <li class="">
-            <a href="#">Pricing</a>
-            {{-- <ul class="submenu megamenu">
+        </li>
+        <li class="">
+          <a href="#">Pricing</a>
+          {{-- <ul class="submenu megamenu">
               <li>
                 <ul>
                   <li>
@@ -276,10 +277,10 @@
                 </ul>
               </li>
             </ul> --}}
-          </li>
-          <li class="">
-            <a href="#">Portfolio</a>
-            {{-- <ul class="submenu">
+        </li>
+        <li class="">
+          <a href="#">Portfolio</a>
+          {{-- <ul class="submenu">
               <li class="has-submenu">
                 <a href="#">Boxed</a>
                 <ul class="submenu">
@@ -317,10 +318,18 @@
                 </ul>
               </li>
             </ul> --}}
-          </li>
-          <li class="">
-            <a href="{{route('blog.page')}}">Blog</a>
-            {{-- <ul class="submenu">
+        </li>
+        <li class="">
+          <a href="{{route('blog.page')}}">Blog</a>
+
+        </li>
+        <li class="">
+          <a href="{{route('shop.page')}}">Shop</a>
+
+        </li>
+        <li class="">
+          <a href="#">About Us</a>
+          {{-- <ul class="submenu">
               <li>
                 <a href="blog-fixed-image.html">Fixed Image</a>
               </li>
@@ -367,10 +376,10 @@
                 </ul>
               </li>
             </ul> --}}
-          </li>
-          <li class="">
-            <a href="#">About Us</a>
-            {{-- <ul class="submenu">
+        </li>
+        <li class="">
+          <a href="#">Contact Us</a>
+          {{-- <ul class="submenu">
               <li>
                 <a href="blog-fixed-image.html">Fixed Image</a>
               </li>
@@ -417,59 +426,9 @@
                 </ul>
               </li>
             </ul> --}}
-          </li>
-          <li class="">
-            <a href="#">Contact Us</a>
-            {{-- <ul class="submenu">
-              <li>
-                <a href="blog-fixed-image.html">Fixed Image</a>
-              </li>
-              <li class="has-submenu">
-                <a href="#">Classic</a>
-                <ul class="submenu">
-                  <li>
-                    <a href="blog.html">No Sidebar</a>
-                  </li>
-                  <li>
-                    <a href="blog-sidebar.html">Right Sidebar</a>
-                  </li>
-                  <li>
-                    <a href="blog-sidebar-left.html">Left Sidebar</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="has-submenu">
-                <a href="#">Masonry</a>
-                <ul class="submenu">
-                  <li>
-                    <a href="blog-masonry.html">No Sidebar</a>
-                  </li>
-                  <li>
-                    <a href="blog-masonry-sidebar.html">Right Sidebar</a>
-                  </li>
-                  <li>
-                    <a href="blog-masonry-sidebar-left.html">Left Sidebar</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="has-submenu">
-                <a href="#">Single Post</a>
-                <ul class="submenu">
-                  <li>
-                    <a href="blog-single.html">No Sidebar</a>
-                  </li>
-                  <li>
-                    <a href="blog-single-sidebar.html">Right Sidebar</a>
-                  </li>
-                  <li>
-                    <a href="blog-single-sidebar-left.html">Left Sidebar</a>
-                  </li>
-                </ul>
-              </li>
-            </ul> --}}
-          </li>
-        </ul>
-        <!-- End navigation menu        -->
-      </div>
+        </li>
+      </ul>
+      <!-- End navigation menu        -->
     </div>
-  </header>
+  </div>
+</header>

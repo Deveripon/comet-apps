@@ -95,4 +95,9 @@ Route::get('/blog', [FrontendController::class, 'ShowBlogPage'])->name('blog.pag
 //show blog post by category
 Route::get('/blog/category/{slug}', [FrontendController::class, 'showBlogPostByCategory'])->name('blog.category.post');
 Route::get('/blog/tag/{slug}', [FrontendController::class, 'showBlogPostByTag'])->name('blog.tag.post');
-Route::get('/blog/single/{slug}', [FrontendController::class, 'showSingleBlogPost'])->name('blog.single.post');;
+Route::get('/blog/single/{slug}', [FrontendController::class, 'showSingleBlogPost'])->name('blog.single.post');
+//product page route
+Route::get('/shop',[FrontendController::class, 'showProductPage'])->name('shop.page');
+Route::get('/shop/category/{slug}',[FrontendController::class, 'showProductByCategory'])->name('shop.category.products');
+Route::get('/shop/tag/{slug}',[FrontendController::class, 'showProductByTag'])->name('shop.tag.products');
+Route::get('/shop/single/{slug}',[FrontendController::class, 'showSingleProduct'])->name('product.single.page');
